@@ -1,9 +1,12 @@
 package main
 
-import "net/http"
+import (
+	"net/http"
+)
 
 func (S *Server) SetRoutes() {
-	S.Mux.Handle("/check", pingHandler())
+	Mux := S.Handler.(*http.ServeMux)
+	Mux.Handle("/check", pingHandler())
 }
 
 func pingHandler() http.HandlerFunc {
