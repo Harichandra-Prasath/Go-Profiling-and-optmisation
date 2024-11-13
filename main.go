@@ -23,8 +23,8 @@ func GetLogger() *LogIt.Logger {
 	opts := LogIt.LoggerOptions{
 		Level: LogIt.LEVEL_DEBUG,
 		RecordOptions: LogIt.RecordOptions{
-			Spacing:   2,
-			Colorfull: true,
+			Spacing: 2,
+			Flags:   LogIt.STD_FLAG,
 		},
 	}
 
