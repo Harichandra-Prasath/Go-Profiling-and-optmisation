@@ -34,6 +34,17 @@ func postHandler() http.HandlerFunc {
 
 		w.Write([]byte("Post Completed!\n"))
 
+		if ok, err := checkEntry(&cred); err != nil {
+			w.Write([]byte("Internal Server Error!\n"))
+			return
+		} else {
+			if !ok {
+				w.Write([]byte("Invalid Credentials!\n"))
+				return
+			}
+			w.Write([]byte("Valid Credentials!\n"))
+		}
+
 	}
 
 }
